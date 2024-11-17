@@ -99,6 +99,37 @@
 
 
 
+    ---
+
+    
+    6. Design Data model
+        - Identify entities and interactions in the system.
+
+          | Logical Entities          | Tangible Entities                           | 
+          | :------------------------ | :------------------------------------------:|
+          | Data                      | Text, Image, Video, files, ...              |
+          | Database                  | MongoDB, MySQL, Cassandra                   |
+          | Applications              | Java, Golang, Python, React,                |
+          | Cache                     | Redis, MemeCache                            |
+          | Infra                     | Cloud(AWS, GCP, Azure) , On-Premises        |
+          | Communication             | APIs, RPCs, Messages                        |
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
