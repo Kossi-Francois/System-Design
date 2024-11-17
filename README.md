@@ -18,14 +18,44 @@
 
     2. Define system APIs - towards parts that are out of scope.It can be towards the front-end or from 3rd party services.
 
+    ---
+
     3. Network
         1. Proxies: forward and reverse proxies
             Forward proxies are used to shield clients from external networks while Reverse proxy acts as a frontend Facade for backend Servers
 
-            Users  {mobile, web, ..} → Forward/Outbound Proxy (client side) { Client Anonymity and Privacy,  Content Filtering and Caching, Security and Access Control} → Internet → Servers
+            - Users  {mobile, web, ..} → Forward/Outbound Proxy (client side) { Client Anonymity and Privacy,  Content Filtering and Caching, Security and Access Control} → Internet → Servers
 
-            Users  {mobile, web, ..} → Internet → Reverse/Inbound Proxy(server side) { Server Anonymity, Load Balancing and Traffic Distribution, Caching, SSL Termination and Encryption, Content Delivery and Optimization } → Servers
+            - Users  {mobile, web, ..} → Internet → Reverse/Inbound Proxy(server side) { Server Anonymity, Load Balancing and Traffic Distribution, Caching, SSL Termination and Encryption, Content Delivery and Optimization } → Servers
 
+
+                ===========================================
+       
+        2. API Gateway and Load Balancer
+
+            - API Gateway: a middleware between clients and backend providing a centralized entry point for accessing various endpoints and functionalities
+                - API Management: authentication, authorization, rate limiting, and caching
+                - Protocol Transformation: can handle different protocols or message formats
+                - Routing and Versioning: requests routing based on predefined rules/config
+                - Analytics and Monitoring: API usage, performance metrics, and error tracking
+            
+            
+            - Load Balancer: distributing incoming requests across multiple backend, optimize resource
+                - Traffic Distribution: across multiple nodes based on predefined algorithms such as round-robin, least connections, or weighted distribution
+                - High Availability: routing traffic away from unhealthy/overloaded servers; health checks to monitor node status and dynamically adjust traffic routing
+                - Session Persistence: sticky session, ensuring that subsequent requests from the same client are directed to the same backend server.
+                - SSL Termination: can offload SSL/TLS encryption and decryption
+                - Algo: 
+            	
+
+                     ===========================================
+                  
+        3. APIs
+            - REST (Representational State Transfer)
+            - RPC (Remote Procedure Call)
+            - GraphQL
+
+    ---
 
     4. Scaling: Horizontal scaling vs Vertical Scaling
 
@@ -41,6 +71,30 @@
  
 
 
+    ---
+
+   5. Estimate and calculate
+
+        - Scale - how many concurrent users the system will support.
+        - Storage - how much space do we need in case we store data.
+        - Network bandwidth 
+        - Bottlenecks
+        - Database connections or throughput
+        - Hard disk reading/writing
+        - Utility that encrypts/decrypts data at high volumes
+        - Loadbalancer
+        - API call to 3rd party service that's rate throttled
+
+
+    	- Approximation
+             - Average: 1 million == 1e6 (if N° user ⇒ X N° transactions per user)
+    			- ~42k per hour
+                - ~700 per minute
+                - ~12 per second
+        
+            - Peak: 10 % of 1 million = 100 k per Hour => 100 K / 30s
+        		- ~1m/day app @ 10% peak for 1 hour: 100k rule = 30/second.
+                - ~1m/day app @ 30% peak for 1 hour: 100k rule = 90/second.
 
 
 
@@ -54,9 +108,7 @@
 
 
 
-
-
-3. System design Tools
+2. System design Tools
 
     - [excalidraw]( https://excalidraw.com/ )
     - [draw.io](http://draw.io/)
